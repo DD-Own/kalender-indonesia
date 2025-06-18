@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender Indonesia 2025-2026</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="50%" height="100%" fill="white"/><rect x="50%" width="50%" height="100%" fill="%23cc0000"/></svg>');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #cc0000;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #cc0000;
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #cc0000;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .year-navigation {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .year-navigation button {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .year-navigation button:hover {
+            background-color: #a30000;
+        }
+
+        .calendar-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .month {
+            width: 30%;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .month:hover {
+            transform: translateY(-5px);
+        }
+
+        .month-header {
+            background-color: #cc0000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .day-names {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background-color: #f5f5f5;
+            padding: 5px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .day {
+            background-color: white;
+            padding: 8px;
+            min-height: 60px;
+            position: relative;
+        }
+
+        .day-number {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .holiday {
+            background-color: #fff8e1;
+            border-left: 3px solid #ffa000;
+        }
+
+        .holiday-event {
+            font-size: 0.7em;
+            color: #cc0000;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .national-holiday {
+            background-color: #ffebee;
+            border-left: 3px solid #cc0000;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-left: 3px solid;
+        }
+
+        .holiday-legend {
+            border-left-color: #ffa000;
+            background-color: #fff8e1;
+        }
+
+        .national-legend {
+            border-left-color: #cc0000;
+            background-color: #ffebee;
+        }
+
+        @media (max-width: 900px) {
+            .month {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .month {
+                width: 100%;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kalender Indonesia</h1>
+            <p>2025 - 2026 | Hari Libur Nasional dan Hari Penting</p>
+        </header>
+
+        <div class="year-navigation">
+            <button onclick="scrollToYear('2025')">2025</button>
+            <button onclick="scrollToYear('2026')">2026</button>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color holiday-legend"></div>
+                <span>Hari Libur/Penting</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color national-legend"></div>
+                <span>Libur Nasional</span>
+            </div>
+        </div>
+
+        <h2 id="2025">Tahun 2025</h2>
+        <div class="calendar-container">
+            <!-- Januari 2025 -->
+            <div class="month">
+                <div class="month-header">Januari 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"></div>
+                    <div class="day"></div>
+                    <div class="day"><div class="day-number">1</div><div class="holiday-event">Tahun Baru 2025</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- Februari 2025 -->
+            <div class="month">
+                <div class="month-header">Februari 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                </div>
+            </div>
+
+            <!-- Maret 2025 -->
+            <div class="month">
+                <div class="month-header">Maret 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- April 2025 -->
+            <div class="month">
+                <div class="month-header">April 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Mei 2025 -->
+            <div class="month">
+                <div class="month-header">Mei 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- Juni 2025 -->
+            <div class="month">
+                <div class="month-header">Juni 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Juli 2025 -->
+            <div class="month">
+                <div class="month-header">Juli 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- Agustus 2025 -->
+            <div class="month">
+                <div class="month-header">Agustus 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- September 2025 -->
+            <div class="month">
+                <div class="month-header">September 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Oktober 2025 -->
+            <div class="month">
+                <div class="month-header">Oktober 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- November 2025 -->
+            <div class="month">
+                <div class="month-header">November 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Desember 2025 -->
+            <div class="month">
+                <div class="month-header">Desember 2025</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="2026">Tahun 2026</h2>
+        <div class="calendar-container">
+            <!-- Januari 2026 -->
+            <div class="month">
+                <div class="month-header">Januari 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div><div class="holiday-event">Tahun Baru 2026</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- Februari 2026 -->
+            <div class="month">
+                <div class="month-header">Februari 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                </div>
+            </div>
+
+            <!-- Maret 2026 -->
+            <div class="month">
+                <div class="month-header">Maret 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- April 2026 -->
+            <div class="month">
+                <div class="month-header">April 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Mei 2026 -->
+            <div class="month">
+                <div class="month-header">Mei 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- Juni 2026 -->
+            <div class="month">
+                <div class="month-header">Juni 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Juli 2026 -->
+            <div class="month">
+                <div class="month-header">Juli 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- Agustus 2026 -->
+            <div class="month">
+                <div class="month-header">Agustus 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- September 2026 -->
+            <div class="month">
+                <div class="month-header">September 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Oktober 2026 -->
+            <div class="month">
+                <div class="month-header">Oktober 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+
+            <!-- November 2026 -->
+            <div class="month">
+                <div class="month-header">November 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                </div>
+            </div>
+
+            <!-- Desember 2026 -->
+            <div class="month">
+                <div class="month-header">Desember 2026</div>
+                <div class="day-names">
+                    <div>M</div><div>S</div><div>S</div><div>R</div><div>K</div><div>J</div><div>S</div>
+                </div>
+                <div class="days">
+                    <div class="day"><div class="day-number">1</div></div>
+                    <div class="day"><div class="day-number">2</div></div>
+                    <div class="day"><div class="day-number">3</div></div>
+                    <div class="day"><div class="day-number">4</div></div>
+                    <div class="day"><div class="day-number">5</div></div>
+                    <div class="day"><div class="day-number">6</div></div>
+                    <div class="day"><div class="day-number">7</div></div>
+                    <div class="day"><div class="day-number">8</div></div>
+                    <div class="day"><div class="day-number">9</div></div>
+                    <div class="day"><div class="day-number">10</div></div>
+                    <div class="day"><div class="day-number">11</div></div>
+                    <div class="day"><div class="day-number">12</div></div>
+                    <div class="day"><div class="day-number">13</div></div>
+                    <div class="day"><div class="day-number">14</div></div>
+                    <div class="day"><div class="day-number">15</div></div>
+                    <div class="day"><div class="day-number">16</div></div>
+                    <div class="day"><div class="day-number">17</div></div>
+                    <div class="day"><div class="day-number">18</div></div>
+                    <div class="day"><div class="day-number">19</div></div>
+                    <div class="day"><div class="day-number">20</div></div>
+                    <div class="day"><div class="day-number">21</div></div>
+                    <div class="day"><div class="day-number">22</div></div>
+                    <div class="day"><div class="day-number">23</div></div>
+                    <div class="day"><div class="day-number">24</div></div>
+                    <div class="day"><div class="day-number">25</div></div>
+                    <div class="day"><div class="day-number">26</div></div>
+                    <div class="day"><div class="day-number">27</div></div>
+                    <div class="day"><div class="day-number">28</div></div>
+                    <div class="day"><div class="day-number">29</div></div>
+                    <div class="day"><div class="day-number">30</div></div>
+                    <div class="day"><div class="day-number">31</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToYear(year) {
+            document.getElementById(year).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Tambahkan hari libur nasional dan hari penting
+        document.addEventListener('DOMContentLoaded', function() {
+            // 2025
+            addHoliday(2025, 1, 1, 'Tahun Baru 2025', true);
+            addHoliday(2025, 3, 3, 'Hari Raya Nyepi', true);
+            addHoliday(2025, 4, 18, 'Jumat Agung', true);
+            addHoliday(2025, 5, 1, 'Hari Buruh Internasional', true);
+            addHoliday(2025, 5, 29, 'Kenaikan Isa Almasih', true);
+            addHoliday(2025, 6, 1, 'Hari Lahir Pancasila');
+            addHoliday(2025, 8, 17, 'Hari Kemerdekaan RI', true);
+            addHoliday(2025, 12, 25, 'Hari Natal', true);
+            
+            // 2026
+            addHoliday(2026, 1, 1, 'Tahun Baru 2026', true);
+            addHoliday(2026, 2, 8, 'Tahun Baru Imlek');
+            addHoliday(2026, 3, 14, 'Hari Raya Nyepi', true);
+            addHoliday(2026, 4, 3, 'Jumat Agung', true);
+            addHoliday(2026, 5, 1, 'Hari Buruh Internasional', true);
+            addHoliday(2026, 5, 14, 'Kenaikan Isa Almasih', true);
+            addHoliday(2026, 6, 1, 'Hari Lahir Pancasila');
+            addHoliday(2026, 8, 17, 'Hari Kemerdekaan RI', true);
+            addHoliday(2026, 12, 25, 'Hari Natal', true);
+        });
+
+        function addHoliday(year, month, day, eventName, isNational = false) {
+            const monthElement = document.querySelector(`.month-header:contains("${getMonthName(month)} ${year}")`);
+            if (monthElement) {
+                const monthContainer = monthElement.parentElement;
+                const days = monthContainer.querySelectorAll('.day');
+                const dayElement = Array.from(days).find(d => {
+                    const dayNumber = d.querySelector('.day-number');
+                    return dayNumber && parseInt(dayNumber.textContent) === day;
+                });
+                
+                if (dayElement) {
+                    if (isNational) {
+                        dayElement.classList.add('national-holiday');
+                    } else {
+                        dayElement.classList.add('holiday');
+                    }
+                    
+                    const eventElement = document.createElement('div');
+                    eventElement.className = 'holiday-event';
+                    eventElement.textContent = eventName;
+                    
+                    const dayNumber = dayElement.querySelector('.day-number');
+                    dayElement.insertBefore(eventElement, dayNumber.nextSibling);
+                }
+            }
+        }
+
+        function getMonthName(month) {
+            const months = [
+                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ];
+            return months[month - 1];
+        }
+    </script>
+</body>
+</html>
